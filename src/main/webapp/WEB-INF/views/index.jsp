@@ -16,14 +16,14 @@
 <c:choose>
     <c:when test="${authentication}">
         <div>
-            <a href="${pageContext.request.contextPath}/user/login">로그인</a>
-            <a href="${pageContext.request.contextPath}/user/join">회원가입</a>
+            <a href="">마이페이지</a>
+            <a href="${pageContext.request.contextPath}/user/logout-proceed">로그아웃</a>
         </div>
     </c:when>
     <c:otherwise>
         <div>
-            <a href="">마이페이지</a>
-            <a href="">로그아웃</a>
+            <a href="${pageContext.request.contextPath}/user/login">로그인</a>
+            <a href="${pageContext.request.contextPath}/user/join">회원가입</a>
         </div>
     </c:otherwise>
 </c:choose>
