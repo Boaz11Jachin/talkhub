@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>TalkHub</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 </head>
 <body>
 <h1>TalkHub</h1>

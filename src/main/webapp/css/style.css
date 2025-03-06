@@ -1,0 +1,14 @@
+
+.color-primary {
+    color: #444444
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.warning-text {
+    color: red;
+    font-size: small;
+}
+
