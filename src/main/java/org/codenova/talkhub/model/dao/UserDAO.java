@@ -63,6 +63,32 @@ public class UserDAO {
         return one;
     }
 
+    public User findByNickname (String specificNickname) {
+        User one = null;
 
+        try {
+            Connection conn = ConnectionFactory.open();
+
+            PreparedStatement ps = conn.prepareStatement("select * from users where nickname = ?");
+            ps.setString(1, specificNickname);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String id = rs.getString("id");
+                String password = rs.getString("password");
+                String nickname = rs.getString("nickname");
+                String gender = rs.getString("gender");
+                int birth = rs.getInt("birth");
+                Date createdAt = rs.getDate("created_at");
+                one = new User(id, password, nickname, gender, birth, createdAt);
+            }
+
+            conn.close();
+        } catch (Exception e) {
+            System.out.println("error : " + e.toString());
+        }
+        return one;
+    }
 
 }
