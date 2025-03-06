@@ -17,7 +17,7 @@
 <c:choose>
     <c:when test="${authentication}">
         <div>
-            <a href="">마이페이지</a>
+            <a href="${pageContext.request.contextPath}/user/profile">마이페이지</a>
             <a href="${pageContext.request.contextPath}/user/logout-proceed">로그아웃</a>
         </div>
     </c:when>
