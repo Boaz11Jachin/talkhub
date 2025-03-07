@@ -64,6 +64,75 @@ public class PostDAO {
         return list;
     }
 
+    public Post findById(int postId) {
+        Post one = null;
+        try {
+            Connection conn = ConnectionFactory.open();
+
+            PreparedStatement ps = conn.prepareStatement("select * from posts where id = ?");
+            ps.setInt(1, postId);
+
+
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()) {
+                one = new Post();
+
+                one.setId(rs.getInt("id"));
+                one.setWriterId(rs.getString("writer_id"));
+                one.setCategory(rs.getString("category"));
+                one.setTitle(rs.getString("title"));
+                one.setContent(rs.getString("content"));
+                one.setLikes(rs.getInt("likes"));
+                one.setViews(rs.getInt("views"));
+                one.setWritedAt(rs.getDate("writed_at"));
+                one.setModifiedAt(rs.getDate("modified_at"));
+            }
+
+            conn.close();
+        }catch(Exception e) {
+            System.out.println("postDAO.findById : "+ e.toString() );
+        }
+        return one;
+    }
+
+    // 조회수 증가 (by Id)
+    public boolean increaseViewsById(int postId) {
+        boolean result = false;
+
+        /* try with resources statement */
+        try(Connection conn = ConnectionFactory.open()) {
+            PreparedStatement ps = conn.prepareStatement("update posts set views = views + 1 where id = ?");
+            ps.setInt(1, postId);
+
+            int r = ps.executeUpdate();
+            if(r > 0) {
+                result = true;
+            }
+        }catch(Exception e) {
+            System.out.println("PostDAO.create : "+ e.toString() );
+        }
+        return result;
+    }
+
+    public boolean increaseLikesById(int postId){
+        boolean result = false;
+
+        try(Connection conn = ConnectionFactory.open()){
+            PreparedStatement ps = conn.prepareStatement("update posts set likes = likes + 1 where id = ?");
+            ps.setInt(1, postId);
+
+            int r = ps.executeUpdate();
+            if(r > 0) {
+                result = true;
+            }
+        }catch(Exception e) {
+            System.out.println("PostDAO.create : "+ e.toString() );
+        }
+        return result;
+
+
+    }
+
 
 
 }

@@ -19,6 +19,7 @@
     <hr/>
     <ul>
         <c:forEach var="one" items="${datas }">
+            <a href="${pageContext.request.contextPath}/post/view?id=${one.id}">
             <li>${one.title }</li>
         </c:forEach>
     </ul>
