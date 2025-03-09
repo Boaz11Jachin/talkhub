@@ -24,7 +24,10 @@ public class LikeProceedServlet extends HttpServlet {
         User requester = (User)req.getSession().getAttribute("user");
         List<PostLike> likes = postLikeDAO.findByUserId(requester.getId());
 
+
+
         boolean alreadyLiked =false;
+
         for(PostLike like : likes){
             if(like.getPostId() == id){
                 alreadyLiked = true;
@@ -40,9 +43,9 @@ public class LikeProceedServlet extends HttpServlet {
         }
 
 
-
+        req.getSession().setAttribute("alreadyLiked", alreadyLiked);
 
         resp.sendRedirect(req.getContextPath()+"/post/view?id="+id);
-
+        //req.getRequestDispatcher("/post/view?id=" + id).forward(req, resp);
     }
 }
