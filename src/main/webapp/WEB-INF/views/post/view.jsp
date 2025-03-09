@@ -32,8 +32,9 @@
     <a href="${pageContext.request.contextPath}/post/list">
       <button type="button">목록으로</button>
     </a>
+    <c:set var="alreadyLiked" value="${sessionScope.alreadyLiked}" />
     <c:choose>
-      <c:when test="${sessionScope.alreadyLiked = true}">
+      <c:when test="${sessionScope.alreadyLiked == true}">
         <button type="button" disabled>추천하기</button>
       </c:when>
       <c:otherwise>
@@ -44,6 +45,7 @@
     </c:choose>
 
   <p>alreadyLiked 값: ${sessionScope.alreadyLiked}</p>
+  <c:remove var="alreadyLiked" scope="session" />
 
 </body>
 </html>
