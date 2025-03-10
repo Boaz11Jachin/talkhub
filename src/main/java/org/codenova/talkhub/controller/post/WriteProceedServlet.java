@@ -29,6 +29,7 @@ public class WriteProceedServlet extends HttpServlet {
 
         if(r) {
             System.out.println("ok");
+            resp.sendRedirect(req.getContextPath()+"/index");
         }else {
             System.out.println("fail");
         }

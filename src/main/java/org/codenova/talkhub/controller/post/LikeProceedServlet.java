@@ -43,7 +43,7 @@ public class LikeProceedServlet extends HttpServlet {
         }
 
 
-        req.getSession().setAttribute("alreadyLiked", alreadyLiked);
+        // 내가만들어서필요없는? req.getSession().setAttribute("alreadyLiked", alreadyLiked);
 
         resp.sendRedirect(req.getContextPath()+"/post/view?id="+id);
         //req.getRequestDispatcher("/post/view?id=" + id).forward(req, resp);

@@ -1,51 +1,44 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: USER
-  Date: 25. 3. 7.
-  Time: 오전 11:13
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>TalkHub</title>
+  <title>TalkHub 게시글 보기</title>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css"/>
 </head>
 <body>
+<div class="container">
   <h1>게시글 보기 | <small>TalkHub</small></h1>
-  <p>
-    ${post.id }번째 게시글 입니다.
+  <p class="post-info">
+    ${post.id}번째 게시글 입니다.
   </p>
   <hr/>
-  <ul>
-    <li>작성자 : ${post.writerId }</li>
-    <li>카테고리 : ${post.category }</li>
-    <li>글제목 : ${post.title }</li>
-    <li>내용 : ${post.content }</li>
-    <li>조회수 : ${post.views }</li>
-    <li>좋아요 : ${post.likes }</li>
-    <li>작성시간 : ${post.writedAt }</li>
-    <li>수정시간 : ${post.modifiedAt }</li>
-
+  <ul class="post-details">
+    <li><strong>작성자:</strong> ${post.writerId}</li>
+    <li><strong>카테고리:</strong> ${post.category}</li>
+    <li><strong>글제목:</strong> ${post.title}</li>
+    <li><strong>내용:</strong> ${post.content}</li>
+    <li><strong>조회수:</strong> ${post.views}</li>
+    <li><strong>좋아요:</strong> ${post.likes}</li>
+    <li><strong>작성시간:</strong> ${post.writedAt}</li>
+    <li><strong>수정시간:</strong> ${post.modifiedAt}</li>
   </ul>
 
+  <div class="button-container">
     <a href="${pageContext.request.contextPath}/post/list">
-      <button type="button">목록으로</button>
+      <button class="btn">목록으로</button>
     </a>
-    <c:set var="alreadyLiked" value="${sessionScope.alreadyLiked}" />
+
     <c:choose>
-      <c:when test="${sessionScope.alreadyLiked == true}">
-        <button type="button" disabled>추천하기</button>
+      <c:when test="${alreadyLiked == true}">
+        <button class="btn" disabled>추천하기</button>
       </c:when>
       <c:otherwise>
         <a href="${pageContext.request.contextPath}/post/like-proceed?id=${post.id}">
-          <button type="button" >추천하기</button>
+          <button class="btn">추천하기</button>
         </a>
       </c:otherwise>
     </c:choose>
-
-  <p>alreadyLiked 값: ${sessionScope.alreadyLiked}</p>
-  <c:remove var="alreadyLiked" scope="session" />
-
+  </div>
+</div>
 </body>
 </html>

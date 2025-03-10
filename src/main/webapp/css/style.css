@@ -12,3 +12,181 @@
     font-size: small;
 }
 
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 본문 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6; /* 밝은 민트색 배경 */
+    color: #333;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* 콘텐츠 컨테이너 */
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 제목 스타일 */
+h1 {
+    font-size: 2.5rem;
+    color: #5fa58d; /* 민트색 */
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    font-size: 1.8rem;
+    color: #5fa58d;
+}
+
+/* 링크 및 버튼 스타일 */
+a {
+    text-decoration: none;
+    color: #5fa58d; /* 민트색 */
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #4a8b73; /* 민트색 다크톤 */
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #5fa58d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4a8b73;
+}
+
+/* 메뉴 스타일 */
+.menu {
+    margin: 20px 0;
+}
+
+.menu a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #5fa58d;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+    background-color: #4a8b73;
+}
+
+/* 입력 필드 스타일 */
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #5fa58d;
+    outline: none;
+}
+
+/* 경고 메시지 스타일 */
+.error {
+    color: red;
+    font-size: 0.9rem;
+}
+
+/* 기본 문단 스타일 */
+p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+/* 반응형 디자인 */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    .menu a {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+        font-size: 1rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2, h3 {
+        font-size: 1.3rem;
+    }
+
+    .menu a {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+}
+
